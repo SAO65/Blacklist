@@ -1,0 +1,56 @@
+LA BLACK LIST DELLA CONSOB. CRISI FINANZIARIE E OBBLIGHI INFORMATIVI PER LE SOCIETÀ QUOTATE
+========================================================
+A. Danovi, S. Olgiati, A. Morlin Visconti 
+--------------------------------------------------------
+
+```{r}
+library(MASS)
+library(lattice)
+library(RCurl)
+```
+
+```{r}
+raw.data=read.csv("/Users/stefanoolgiati/Desktop/BlackList/blacklist.csv")
+names(raw.data)
+dim(raw.data)
+```
+
+```{r}
+clean.data <- na.omit(raw.data)
+dim(clean.data)
+```
+
+```{r}
+scaled.data <- scale(clean.data[ ,-1:-6])
+scaled.data
+class(scaled.data)
+scaled.data.frame <- as.data.frame(scaled.data)
+class(scaled.data.frame)
+scaled.data.frame
+input.data <- data.frame("BIN"=na.omit(clean.data$BIN), scaled.data.frame)
+input.data
+```
+
+```{r}
+attach(input.data)
+cor(input.data[,-1])
+par(mfrow=(c(1,3)))
+qqnorm(CAP, main="Capitalizzazione", xlab=NA);qqline(CAP, col=2)
+qqnorm(REV, main="Ricavi", ylab=NA);qqline(REV, col=2)
+qqnorm(EMP, main="Organico", xlab=NA, ylab=NA);qqline(EMP, col=2)
+```
+
+```{r}
+attach(clean.data)
+lda.fit <- lda(BIN~EMP+REV+CAP, data=clean.data)
+lda.fit
+plot(lda.fit, dimen=1, type="both")
+```
+
+```{r}
+lda.pred <- predict(lda.fit, clean.data)
+names(lda.pred)
+lda.class <- lda.pred$class
+table(lda.class, BIN)
+mean(lda.class==BIN)
+```
