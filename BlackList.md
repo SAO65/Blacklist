@@ -45,6 +45,45 @@ dim(clean.data)
 ## [1] 18  9
 ```
 
+```r
+summary(clean.data)
+```
+
+```
+##                      ENTITY         IN                        OUT   
+##  A.S. Roma              : 1   Apr-08 :2   Aug-09                :5  
+##  Chl                    : 1   Aug-09 :2   Jun-07                :2  
+##  Ciccolella             : 1   Nov-02 :2   ago-09  ; ancora in bl:1  
+##  Data Service (BEE Team): 1   Apr-03 :1   Apr-04                :1  
+##  Fullsix                : 1   Feb-05 :1   Jan-08                :1  
+##  Garboli Conicos        : 1   Jan-06 :1   Jan-12                :1  
+##  (Other)                :12   (Other):9   (Other)               :7  
+##                                    CAUSE_OUT      BIN       
+##  miglioramento posiz patrim             :8   Min.   :0.000  
+##  fallimento                             :2   1st Qu.:0.000  
+##  14 giugno 10, procedimento fallimentare:1   Median :1.000  
+##  15 ottobre 2009, opa totalitaria       :1   Mean   :0.611  
+##  19 aprile 2004, fallimento societ<e0>  :1   3rd Qu.:1.000  
+##  21 maggio 04, amministrazione straord  :1   Max.   :1.000  
+##  (Other)                                :4                  
+##                                 SECTOR        EMP            REV       
+##  calcio                            : 2   Min.   :   2   Min.   :  0.0  
+##  information tecnology             : 2   1st Qu.: 150   1st Qu.: 27.8  
+##  ceramica                          : 1   Median : 200   Median : 83.5  
+##  commercio elettronico             : 1   Mean   : 588   Mean   :174.2  
+##  costruzione e vendita di ascensori: 1   3rd Qu.: 717   3rd Qu.:250.0  
+##  energie rinnovabili               : 1   Max.   :2600   Max.   :700.0  
+##  (Other)                           :10                                 
+##       CAP       
+##  Min.   :  8.0  
+##  1st Qu.: 16.2  
+##  Median : 28.5  
+##  Mean   : 37.8  
+##  3rd Qu.: 50.0  
+##  Max.   :110.0  
+## 
+```
+
 
 
 ```r

@@ -18,6 +18,7 @@ dim(raw.data)
 ```{r}
 clean.data <- na.omit(raw.data)
 dim(clean.data)
+summary(clean.data)
 ```
 
 ```{r}
