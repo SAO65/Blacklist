@@ -37,6 +37,63 @@ dim(raw.data)
 
 
 ```r
+attach(raw.data)
+summary(na.omit(EMP))
+```
+
+```
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##       2     106     316    1140     875   19000
+```
+
+```r
+cv.EMP <- sd(na.omit(EMP))/mean(na.omit(EMP))
+cv.EMP
+```
+
+```
+## [1] 2.428
+```
+
+```r
+summary(na.omit(REV))
+```
+
+```
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##       0      25      80     285     240    3200
+```
+
+```r
+cv.REV <- sd(na.omit(REV))/mean(na.omit(REV))
+cv.REV
+```
+
+```
+## [1] 1.924
+```
+
+```r
+summary(na.omit(CAP))
+```
+
+```
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##     4.0    15.0    20.0    61.5    45.0   600.0
+```
+
+```r
+cv.CAP <- sd(na.omit(CAP))/mean(na.omit(CAP))
+cv.CAP
+```
+
+```
+## [1] 1.799
+```
+
+
+
+```r
 clean.data <- na.omit(raw.data)
 dim(clean.data)
 ```
@@ -193,6 +250,15 @@ input.data
 
 ```r
 attach(input.data)
+```
+
+```
+## The following objects are masked from raw.data:
+## 
+##     BIN, CAP, EMP, REV
+```
+
+```r
 cor(input.data[, -1])
 ```
 
@@ -213,7 +279,7 @@ qqnorm(EMP, main = "Organico", xlab = NA, ylab = NA)
 qqline(EMP, col = 2)
 ```
 
-![plot of chunk unnamed-chunk-5](figure/unnamed-chunk-5.png) 
+![plot of chunk unnamed-chunk-6](figure/unnamed-chunk-6.png) 
 
 
 
@@ -225,6 +291,9 @@ attach(clean.data)
 ## The following objects are masked from input.data:
 ## 
 ##     BIN, CAP, EMP, REV
+## The following objects are masked from raw.data:
+## 
+##     BIN, CAP, CAUSE_OUT, EMP, ENTITY, IN, OUT, REV, SECTOR
 ```
 
 ```r
@@ -256,7 +325,7 @@ lda.fit
 plot(lda.fit, dimen = 1, type = "both")
 ```
 
-![plot of chunk unnamed-chunk-6](figure/unnamed-chunk-6.png) 
+![plot of chunk unnamed-chunk-7](figure/unnamed-chunk-7.png) 
 
 
 

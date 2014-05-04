@@ -16,6 +16,19 @@ dim(raw.data)
 ```
 
 ```{r}
+attach(raw.data)
+summary(na.omit(EMP))
+cv.EMP <- sd(na.omit(EMP)) / mean(na.omit(EMP))
+cv.EMP
+summary(na.omit(REV))
+cv.REV <- sd(na.omit(REV)) / mean(na.omit(REV))
+cv.REV
+summary(na.omit(CAP))
+cv.CAP <- sd(na.omit(CAP)) / mean(na.omit(CAP))
+cv.CAP
+```
+
+```{r}
 clean.data <- na.omit(raw.data)
 dim(clean.data)
 summary(clean.data)
