@@ -7,6 +7,7 @@ A. Danovi, S. Olgiati, A. Morlin Visconti
 library(MASS)
 library(lattice)
 library(RCurl)
+library(ggplot2)
 ```
 
 ```{r}
@@ -52,6 +53,11 @@ par(mfrow=(c(1,3)))
 qqnorm(CAP, main="Capitalizzazione", xlab=NA);qqline(CAP, col=2)
 qqnorm(REV, main="Ricavi", ylab=NA);qqline(REV, col=2)
 qqnorm(EMP, main="Organico", xlab=NA, ylab=NA);qqline(EMP, col=2)
+```
+
+```{r}
+attach(clean.data)
+plot(REV, EMP, xlab="Ricavi", ylab="Numero di Dipendenti", main="Correlazione tra Ricavi e Numero di Dipendenti")
 ```
 
 ```{r}
